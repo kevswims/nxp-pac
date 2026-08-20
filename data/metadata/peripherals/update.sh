@@ -57,7 +57,7 @@ cp raw/MCXA577/VBAT.yaml mcxa/VBAT.yaml
 cp raw/MCXA577/WWDT.yaml mcx/WWDT.yaml
 
 cp raw/MCXA256/RTC.yaml mcxa/RTC2xx.yaml
-cp raw/MCXA577/RTC.yaml mcxa/RTC5xx.yaml
+cp raw/MCXA577/RTC.yaml mcx/RTC5xx.yaml
 
 cp raw/MCXA256/MRCC.yaml mcxa/MRCC2xx.yaml
 cp raw/MCXA577/MRCC.yaml mcxa/MRCC5xx.yaml
