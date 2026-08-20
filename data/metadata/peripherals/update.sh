@@ -27,6 +27,9 @@ pushd $CURRENT_DIR
 # plain cp from either source would silently drop real fields. See the header
 # comment in mcxa/WUU.yaml for the details of what is merged and why.
 # cp raw/MCXA256/WUU.yaml mcxa/WUU.yaml
+# mcx/DAC.yaml is raw/MCXA256/DAC.yaml without the BufEn enum, whose SVD
+# variant descriptions are inverted. A plain cp would bring it back.
+# cp raw/MCXA256/DAC.yaml mcx/DAC.yaml
 
 cp raw/MCXA256/FLEXIO.yaml mcxa/FLEXIO.yaml
 cp raw/MCXA256/FLEXPWM.yaml mcxa/FLEXPWM.yaml
