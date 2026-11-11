@@ -125,6 +125,7 @@ fieldset/Isel:
     description: Bit n selects input n mode; zero is edge-sensitive, one is level-sensitive.
     bit_offset: 0
     bit_size: 8
+    enum: Pmode
 fieldset/Ienr:
   bit_size: 32
   reset_value: 0
@@ -133,6 +134,7 @@ fieldset/Ienr:
     description: Bit n enables rising-edge interrupts in edge mode or level interrupts in level mode.
     bit_offset: 0
     bit_size: 8
+    enum: Enrl
 fieldset/Sienr:
   bit_size: 32
   reset_value: 0
@@ -193,6 +195,7 @@ fieldset/Rise:
     description: Per-input rising-edge flags. Write one to clear, zero has no effect.
     bit_offset: 0
     bit_size: 8
+    enum: Rdet
 fieldset/Fall:
   bit_size: 32
   reset_value: 0
@@ -201,6 +204,7 @@ fieldset/Fall:
     description: Per-input falling-edge flags. Write one to clear, zero has no effect.
     bit_offset: 0
     bit_size: 8
+    enum: Fdet
 fieldset/Ist:
   bit_size: 32
   reset_value: 0
@@ -211,6 +215,7 @@ fieldset/Ist:
       mode or toggle the IENF active level in level mode; zero has no effect.
     bit_offset: 0
     bit_size: 8
+    enum: Pstat
 fieldset/Pmctrl:
   bit_size: 32
   reset_value: 0
@@ -253,6 +258,7 @@ fieldset/Pmcfg:
       always an endpoint and has no programmable bit.
     bit_offset: 0
     bit_size: 1
+    enum: ProdEndpts
     array:
       len: 7
       stride: 1
@@ -323,3 +329,57 @@ enum/MatchCondition:
   - name: EVENT
     description: Nonsticky rising or falling edge; see CFG timing wording conflict.
     value: 7
+enum/Pmode:
+  bit_size: 8
+  variants:
+  - name: Edge
+    description: Edge sensitive.
+    value: 0
+  - name: Level
+    description: Level sensitive.
+    value: 1
+enum/Fdet:
+  bit_size: 8
+  variants:
+  - name: NotDetected
+    description: Read 0- No falling edge (since Reset or you wrote a 1 to this field last time), Write 0- No operation.
+    value: 0
+  - name: Detected
+    description: Read 1- Falling edge (since Reset or you wrote a 1 to this field last time), Write 1- Clear falling-edge detection for this bit.
+    value: 1
+enum/Enrl:
+  bit_size: 8
+  variants:
+  - name: Disabled
+    description: In bit n disables the corresponding interrupt.
+    value: 0
+  - name: Enabled
+    description: In bit n enables the corresponding interrupt.
+    value: 1
+enum/Pstat:
+  bit_size: 8
+  variants:
+  - name: NotRequested
+    description: Read 0- Interrupt is not requested, Write 0- No operation.
+    value: 0
+  - name: Requested
+    description: Read 1- Interrupt is requested, Write 1 (edge-sensitive)- clear rising- and falling-edge detection for this pin, Write 1 (level-sensitive)- switch the active level for this pin in.
+    value: 1
+enum/ProdEndpts:
+  bit_size: 1
+  variants:
+  - name: NoEffect
+    description: No effect.
+    value: 0
+  - name: Endpoint
+    description: Endpoint.
+    value: 1
+enum/Rdet:
+  bit_size: 8
+  variants:
+  - name: NotDetected
+    description: Read 0- No rising edge (since Reset or you wrote a 1 to this field last time), Write 0- No operation.
+    value: 0
+  - name: Detected
+    description: Read 1- Rising edge (since Reset or you wrote a 1 to this field last time), Write 1- Clear rising-edge detection for this pin.
+    value: 1
