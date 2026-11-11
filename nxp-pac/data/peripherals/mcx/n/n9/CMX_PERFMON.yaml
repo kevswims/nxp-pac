@@ -146,6 +146,12 @@ enum/CmxPerfmonAlphaEnumAlpha:
   - name: UserAndPriv
     description: Counted in both User and Privileged modes.
     value: 0
+  - name: UserOnly
+    description: Counted only in User mode.
+    value: 2
+  - name: PrivOnly
+    description: Counted only in Privileged mode.
+    value: 3
 enum/CmxPerfmonAlphaEnumBravo:
   bit_size: 1
   variants:
