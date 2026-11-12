@@ -376,6 +376,14 @@ fieldset/ItrcAlphaFieldsetEcho:
     bit_offset: 1
     bit_size: 1
     enum: ItrcAlphaEnumIndia
+  - name: in18_status
+    description: Input 18 status. Not described in the reference manual; the SDK ITRC driver includes this bit in its STATUS1 event mask.
+    bit_offset: 2
+    bit_size: 1
+  - name: in19_status
+    description: Input 19 status. Not described in the reference manual; the SDK ITRC driver includes this bit in its STATUS1 event mask.
+    bit_offset: 3
+    bit_size: 1
   - name: in20_status
     description: VBAT clock tamper output event occurred.
     bit_offset: 4
